@@ -1,4 +1,51 @@
 Rails.application.routes.draw do
+get 'sessions/new'
+get 'sessions/create'
+get 'sessions/destroy'
+get 'signup', to: 'teachers#new', as: 'signup'
+get 'login', to: 'sessions#new', as: 'login'
+get 'logout', to: 'sessions#destroy', as: 'logout'
+resources :teachers
+resources :grades
+resources :parents
+resources :students
+
+#  get 'grades/index'
+#
+#  get 'grades/edit'
+#
+#  get 'grades/destroy'
+#
+#  get 'grades/create'
+#
+#  get 'grades/show'
+#
+#  get 'grades/update'
+#
+#  get 'grades/new'
+#
+#  get 'students/index'
+#
+#  get 'students/show'
+#
+#  get 'parents/index'
+#
+#  get 'parents/show'
+#
+#  get 'teachers/index'
+#
+#  get 'teachers/edit'
+#
+#  get 'teachers/destroy'
+#
+#  get 'teachers/create'
+#
+#  get 'teachers/show'
+#
+#  get 'teachers/update'
+#
+#  get 'teachers/new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
