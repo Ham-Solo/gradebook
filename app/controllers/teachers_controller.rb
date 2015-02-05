@@ -4,10 +4,11 @@ class TeachersController < ApplicationController
   def index
     @teachers = Teacher.all
     @students = Student.all
+    @teacher = Teacher.find(session[:teacher_id])
   end
 
   def new
-    @techer = Teacher.new
+    @teacher = Teacher.new
   end
 
   def edit
