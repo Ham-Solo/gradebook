@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-get 'sessions/new'
-get 'sessions/create'
-get 'sessions/destroy'
-get 'signup', to: 'teachers#new', as: 'signup'
-get 'login', to: 'sessions#new', as: 'login'
-get 'logout', to: 'sessions#destroy', as: 'logout'
-resources :teachers
-resources :grades
-resources :parents
-resources :students
+
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
+  root 'sessions#new'
+
+  resources :sessions, only: [:new, :create, :destroy, :index]
+  resources :teachers
+  resources :grades
+  resources :parents
+  resources :students
 
 #  get 'grades/index'
 #
