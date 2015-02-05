@@ -6,20 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Grade.create(assignment: 'Math Test', grade: 'A', student_id: 1)
-Grade.create(assignment: 'HW for Biology', grade: 'D', student_id: 3)
+Assignment.create(name: 'Math Test', student_id: 1, grade: 'A')
 
-Grade.create(assignment: 'PE Test', grade: 'A', student_id: 3)
+Assignment.create(name: 'Biology test on 2/2/15', student_id: 3, grade: 'D')
 
-Grade.create(assignment: 'Golf', grade: 'A', student_id: 2)
+Assignment.create(name: 'Golf', student_id: 2, grade: 'B')
 
-Grade.create(assignment: 'Bowling', grade: 'C', student_id: 1)
+Assignment.create(name: 'Bowling',  student_id: 4, grade: 'C')
 
-Grade.create(assignment: 'Trig', grade: 'B', student_id: 2)
+Assignment.create(name: 'Trig', student_id: 2, grade: 'A')
 
-Grade.create(assignment: 'Math Test on 2/12/15', grade: 'D', student_id: 4)
+Assignment.create(name: 'HW for Biology', student_id: 4, grade: 'D')
 
-Grade.create(assignment: 'History Test on 1/30/15', grade: 'A', student_id: 4)
+Assignment.create(name: 'PE Test', student_id: 1, grade: 'C')
+
 
 Teacher.create(name: 'Mason Mattews', email: 'mason@TIY.com', password: 'password');
 

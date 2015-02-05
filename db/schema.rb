@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205191639) do
+ActiveRecord::Schema.define(version: 20150205215039) do
 
-  create_table "grades", force: :cascade do |t|
-    t.string   "assignment"
+  create_table "assignments", force: :cascade do |t|
+    t.string   "name"
     t.string   "grade"
     t.integer  "student_id"
     t.datetime "created_at", null: false

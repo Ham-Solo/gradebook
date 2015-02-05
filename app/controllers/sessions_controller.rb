@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     t = Teacher.find_by_email(params[:email])
     if t && t.authenticate(params[:password])
       session[:teacher_id] = t.id
-      redirect_to root_path, notice: "You've logged in."
+      redirect_to teachers_path, notice: "You've logged in."
     else
       redirect_to root_path, notice: "Wrong email or password."
     end

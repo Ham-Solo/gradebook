@@ -1,7 +1,7 @@
-class CreateGrades < ActiveRecord::Migration
+class CreateAssignments < ActiveRecord::Migration
   def change
-    create_table :grades do |t|
-      t.string :assignment
+    create_table :assignments do |t|
+      t.string :name
       t.string :grade
       t.integer :student_id
 

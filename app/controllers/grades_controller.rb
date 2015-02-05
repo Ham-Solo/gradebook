@@ -1,5 +1,6 @@
 class GradesController < ApplicationController
   def index
+    @grades = Grade.all
   end
 
   def edit
@@ -18,5 +19,10 @@ class GradesController < ApplicationController
   end
 
   def new
+    @grade = Grade.new
+  end
+
+  private def grade_params
+    params.require(:grade).permit(:assignment, :grade)
   end
 end

@@ -3,6 +3,7 @@ class TeachersController < ApplicationController
 
   def index
     @teachers = Teacher.all
+    @students = Student.all
   end
 
   def new
