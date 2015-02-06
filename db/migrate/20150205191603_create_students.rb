@@ -5,6 +5,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :email
       t.string :password_digest
       t.integer :teacher_id
+      t.integer :parent_id
 
       t.timestamps null: false
     end

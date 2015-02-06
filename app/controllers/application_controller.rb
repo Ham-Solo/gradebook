@@ -3,9 +3,17 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  private def current_teacher
-    Teacher.where(id: session[:teacher_id]).first
+  private
+
+  def current_user
+    if session[:teacher_id]
+      Teacher.where(id: session[:teacher_id]).first
+    elsif session[:student_id]
+      Student.where(id: session[:student_id]).first
+    elsif session[:parent_id]
+      Parent.where(id: session[:parent_id]).first
+    end
   end
 
-  helper_method :current_teacher
+  helper_method :current_user
 end

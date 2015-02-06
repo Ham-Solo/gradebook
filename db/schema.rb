@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20150205215039) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.integer  "student_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -35,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150205215039) do
     t.string   "email"
     t.string   "password_digest"
     t.integer  "teacher_id"
+    t.integer  "parent_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

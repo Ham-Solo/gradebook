@@ -3,7 +3,6 @@ class TeachersController < ApplicationController
 
   def index
     @teachers = Teacher.all
-    @students = Student.all
     @teacher = Teacher.find(session[:teacher_id])
   end
 
@@ -43,8 +42,9 @@ class TeachersController < ApplicationController
   end
 
   private
+
     def teacher_params
-      params.require(:teacher).permit(:name, :email, :password, :password_confirmation)
+      params.require(:teacher).permit(:name, :email, :password)
     end
 
     def set_teacher

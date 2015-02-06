@@ -1,2 +1,24 @@
-<h1>Students#index</h1>
-<p>Find me in app/views/students/index.html.erb</p>
+<h1>Student List</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Assignment</th>
+      <th>Grade</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @student.assignments.each do |a| %>
+      <tr>
+        <td><%= a.name %></td>
+        <td><%= a.grade %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Home', root_path %>
