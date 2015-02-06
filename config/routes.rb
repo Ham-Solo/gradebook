@@ -2,12 +2,10 @@ Rails.application.routes.draw do
 
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
-
   root 'sessions#new'
 
   resources :sessions, only: [:new, :create, :destroy, :index]
   resources :teachers
-  resources :grades
   resources :parents
   resources :students
 

@@ -1,5 +1,7 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show]
+  before_action :logged_in?
+  # before_action :redirect_path, only: [:new, :edit, :create, :destroy]
 
   def index
     @students = Student.all
@@ -11,6 +13,36 @@ class StudentsController < ApplicationController
   end
 
   def show
+
+  end
+
+  def edit
+
+  end
+
+  def create
+    @student = Student.new(student_params)
+
+    if @student.save
+      session[:student_id] = @student.id
+      redirect_to root_path, notice: 'Student was created.'
+    else
+      render :new
+    end
+  end
+
+  def update
+    if @student.update(student_params)
+      session[:student_id] = @student.id
+      redirect_to @student, notice: 'Student was updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @student.destroy
+    redirect_to students.url, notice: 'Student was destroyed!'
   end
 
   private

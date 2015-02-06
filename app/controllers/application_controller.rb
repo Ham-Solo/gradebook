@@ -16,4 +16,28 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
+
+  def logged_in?
+    unless current_user
+      redirect_to root_path
+    end
+  end
+
+  def redirect_path
+    if session[:teacher_id]
+      redirect_to teachers_path
+    elsif session[:student_id]
+      redirect_to students_path
+    elsif session[:parent_id]
+      redirect_to parents_path
+    end
+  end
+
+  def parent_student?
+    if session[:student_id]
+      redirect_to students_path
+    elsif session[:parent_id]
+      redirect_to parents_path
+    end
+  end
 end
