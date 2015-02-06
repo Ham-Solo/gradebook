@@ -1,7 +1,8 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show]
+  before_action :set_student, only: [:show, :edit, :update, :destroy]
   before_action :logged_in?
-  # before_action :redirect_path, only: [:new, :edit, :create, :destroy]
+  before_action :permission?, only: [:new, :show, :edit, :update, :create, :destroy]
+
 
   def index
     @students = Student.all

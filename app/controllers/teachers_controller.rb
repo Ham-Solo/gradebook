@@ -1,8 +1,7 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :edit, :update, :destroy]
   before_action :logged_in?
-  before_action :parent_student?
-
+  before_action :permission?, only: [:new, :show, :edit, :update, :create, :destroy]
 
   def index
     @teachers = Teacher.all

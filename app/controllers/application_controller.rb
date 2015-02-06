@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+
   protect_from_forgery with: :exception
 
   private
@@ -33,11 +34,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def parent_student?
-    if session[:student_id]
-      redirect_to students_path
-    elsif session[:parent_id]
-      redirect_to parents_path
+  def permission?
+    unless session[:teacher_id]
+      redirect_to root_path
     end
   end
 end
